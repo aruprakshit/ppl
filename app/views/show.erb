@@ -1,0 +1,27 @@
+<h1><%= @projects.name %></h1>
+<p><%= @projects.description %></p>
+
+<h3> Users signed-up: </h3>
+<ul>
+  <% @users.each do |user| %>
+    <li><strong> UserName: </strong>
+      <%="#{user.first_name} #{user.last_name}"%>
+    </li>
+    <li> <strong> Email address: </strong>
+      <%= user.email %>
+    </li>
+    <br>
+  <% end %>
+</ul>
+
+<h3>Task Assigned: </h3>
+<ul>
+  <% @tasks.each do |task| %>
+    <li> <strong><%= task.name + ': '%></strong>
+      <% if !task.user.nil? %>
+        <%= task.user.first_name + ' ' + task.user.last_name %>
+      <% end %>
+    </li>
+    <br>
+  <% end %>
+</ul>
